@@ -209,8 +209,8 @@ Lisp function does not specify a special indentation."
   (setq-local indent-line-function 'lisp-indent-line)
   (setq-local lisp-indent-function 'hy-indent-function)
   (setq-local inferior-lisp-load-command
-	      (concat "(import [hy.importer [import-file-to-module]])\n"
-		      "(import-file-to-module \"__main__\" \"%s\")\n")))
+	      (concat "(import [hy.importer [import-file-to-module import-file-to-globals]])\n"
+		      "(import-file-to-globals (globals) \"__main__\" \"%s\")\n")))
 
 (set-keymap-parent hy-mode-map lisp-mode-shared-map)
 (define-key hy-mode-map (kbd "C-M-x")   'lisp-eval-defun)
